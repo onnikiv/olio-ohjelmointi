@@ -19,7 +19,8 @@ public class task03 {
 
         System.out.println("SUM: " + sum);
         System.out.println("PRODUCT: " + product);
-        System.out.println("AVERAGE: " + (((float)sum) / 3));
-        // Ei ollut float:tina siksi ei tullut decimaaleja.
+        System.out.println("AVERAGE: " + ((float)(sum/3)));
+        
+        // The average must be introduced as a float value to get decimals, since integers cant have decimals.
     }
 }
