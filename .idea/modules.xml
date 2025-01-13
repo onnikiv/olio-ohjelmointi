@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/CourseTasks/1.1_Tasks/1.1_Tasks.iml" filepath="$PROJECT_DIR$/CourseTasks/1.1_Tasks/1.1_Tasks.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CourseTasks/CourseTasks.iml" filepath="$PROJECT_DIR$/CourseTasks/CourseTasks.iml" />
       <module fileurl="file://$PROJECT_DIR$/Olio-ohjelmointi.iml" filepath="$PROJECT_DIR$/Olio-ohjelmointi.iml" />
     </modules>
   </component>
