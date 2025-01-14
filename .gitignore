@@ -30,3 +30,6 @@ bin/
 
 ### IntelliJ IDEA ###
 .idea/
+
+### .imls ###
+olio-ohjelmointi.iml
