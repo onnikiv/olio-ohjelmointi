@@ -10,6 +10,10 @@ public class task03 {
 
         System.out.println("Anna paino grammoina (g): ");
         double grammat = scanner.nextDouble();
-        System.out.println("Leivisköinä: " + Math.floor(grammat/leiviska) + " Naulat: " + Math.floor((grammat%leiviska)/naula) + " luoteina: " + ((grammat%leiviska)%naula)/luoti);
+        int leiviskat = (int) Math.floor(grammat / leiviska);
+        int naulat = (int) Math.floor((grammat % leiviska) / naula);
+        double luodit = (int) Math.floor(((grammat % leiviska) % naula) / luoti);
+
+        System.out.println("Leivisköinä: " + leiviskat + " Naulat: " + naulat + " luoteina: " + luodit);
     }
 }
