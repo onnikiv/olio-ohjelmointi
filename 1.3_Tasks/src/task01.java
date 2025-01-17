@@ -5,13 +5,13 @@ public class task01 {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("\nax^2 + bx + c = 0");
-        System.out.println("Give coefficient (A):");
+        System.out.println("Enter coefficient (A):");
         double a = scanner.nextDouble();
 
-        System.out.println("Give the coefficient B: ");
+        System.out.println("Enter coefficient (B): ");
         double b = scanner.nextDouble();
 
-        System.out.println("Give the coefficient C: ");
+        System.out.println("Enter coefficient (C): ");
         double c = scanner.nextDouble();
 
         double discriminant = Math.pow(b, 2) - 4 * a * c;
