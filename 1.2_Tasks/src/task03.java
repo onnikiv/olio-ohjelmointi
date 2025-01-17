@@ -8,12 +8,16 @@ public class task03 {
         double naula = (32 * luoti);
         double leiviska = 20 * naula;
 
-        System.out.println("Anna paino grammoina (g): ");
+        System.out.print("Weight (g): ");
+
         double grammat = scanner.nextDouble();
         int leiviskat = (int) Math.floor(grammat / leiviska);
         int naulat = (int) Math.floor((grammat % leiviska) / naula);
-        double luodit = (int) Math.floor(((grammat % leiviska) % naula) / luoti);
+        double luodit = (((grammat % leiviska) % naula) / luoti);
 
-        System.out.println("Leivisköinä: " + leiviskat + " Naulat: " + naulat + " luoteina: " + luodit);
+        scanner.close();
+        luodit = Math.round(luodit * 100.0) / 100.0;
+
+        System.out.println((int)grammat + " grams is " + leiviskat + " leiviskä, " + naulat + " naula, and " + luodit + " luoti.");
     }
 }
