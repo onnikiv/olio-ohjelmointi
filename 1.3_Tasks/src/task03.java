@@ -13,11 +13,12 @@ public class task03 {
         if (startNumber >= 0 && endNumber > 0) {
             System.out.println("good job");
 
-            for (int i = endNumber; i >= startNumber; i--) {
+            for (int i = startNumber; i <= endNumber; i++) {
                 
-                System.out.println(i);
-                if (i % i==0) {
-                    System.out.println(i + " is a prime number");
+                if (i % 2 == 0) {
+                    System.out.println(i + " is even");
+                } else {
+                    System.out.println(i + " is odd");
                 }
                 
             }
