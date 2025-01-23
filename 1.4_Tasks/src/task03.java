@@ -8,10 +8,17 @@ public class task03 {
         System.out.println("Enter the size of the array: ");
         int arraySize = scanner.nextInt();
         int[] numberArray = new int[arraySize];
+        int[] noDuplicatesArray = new int[arraySize];
 
         for (int i = 0; i < arraySize; i ++) {
             System.out.println("Enter integer " + (i+1) + ":");
             numberArray[i] = scanner.nextInt();
+
+            
+        }
+
+        for (int i = 0; i < arraySize; i++) {
+            
 
             
         }
