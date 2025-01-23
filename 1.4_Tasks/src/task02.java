@@ -15,7 +15,7 @@ public class task02 {
 
             
         }
-        int maxSum = Integer.MIN_VALUE;
+        int maxSum = 0;
         int start = 0;
         int end = 0;
 
@@ -32,7 +32,7 @@ public class task02 {
         }
 
         System.out.println("Maximum sum: " + maxSum);
-        System.out.println("Subarray indices: " + (start + 1) + " to " + (end + 1));
+        System.out.println("Integers: " + (start + 1) + " to " + (end + 1));
 
         scanner.close();
 }
