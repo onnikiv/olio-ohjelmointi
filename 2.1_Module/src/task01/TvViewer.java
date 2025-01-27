@@ -1,3 +1,4 @@
+package task01;
 
 class Television {
 	private int channel;
@@ -45,7 +46,7 @@ class Television {
 				}
 			}
 		} else {
-			System.out.println("Television is OFF!");
+			System.out.println("task01.Television is OFF!");
 		}
 	}
 }
