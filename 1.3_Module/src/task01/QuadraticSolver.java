@@ -1,6 +1,8 @@
+package task01;
+
 import java.util.Scanner;
 
-public class task01 {
+public class QuadraticSolver {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 

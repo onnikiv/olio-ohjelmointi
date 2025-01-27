@@ -1,8 +1,9 @@
+package task01;
 
 import java.util.Scanner;
 
 
-public class task01 {
+public class NameGenerator {
 
     public static String[] firstNames = {"Juhani", "Johanna", "Mikko", "Liisa", "Kari", "Sari", "Pekka", "Marja", "Timo", "Anna"};
     public static String[] lastNames = {"Virtanen", "Korhonen", "Nieminen", "Mäkinen", "Hämäläinen", "Laine", "Heikkinen", "Koskinen", "Järvinen", "Lehtonen"};

@@ -1,7 +1,9 @@
+package task04;
+
 import java.util.Random;
 import java.util.Scanner;
 
-public class task04 {
+public class MultiplicationTable {
 
     public static void main(String[] args) {
         Random random = new Random();
