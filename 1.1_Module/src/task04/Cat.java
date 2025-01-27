@@ -1,7 +1,9 @@
-public class task04 {
+package task04;
+
+public class Cat {
     public String name;
 
-    public task04(String name) {
+    public Cat(String name) {
         this.name = name;
     }
 
@@ -11,8 +13,8 @@ public class task04 {
 
     public static void main(String[] args) {
 
-        task04 cat = new task04("Whiskers");
-        task04 cat2 = new task04("Rex");
+        Cat cat = new Cat("Whiskers");
+        Cat cat2 = new Cat("Rex");
 
         cat.meow();
         cat.meow();

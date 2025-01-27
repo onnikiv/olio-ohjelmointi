@@ -6,7 +6,7 @@ public class Car {
     private double gasolineLevel;
     private String typeName;
 
-    // Tehtävänannon mukaan muokattu vain task02.Car luokkaa. main osiossa "testialustus oliolle"
+    // Tehtävänannon mukaan muokattu vain Car luokkaa. main osiossa "testialustus oliolle"
     // tankCapacity + topSpeed
     private double tankCapacity;
     private double topSpeed;

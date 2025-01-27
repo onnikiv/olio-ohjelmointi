@@ -1,6 +1,8 @@
+package task03;
+
 import java.util.Scanner;
 
-public class task03 {
+public class ObsoleteMeasures {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);

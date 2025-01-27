@@ -1,6 +1,8 @@
+package task02;
+
 import java.util.Scanner;
 
-public class task02 {
+public class Triangles {
     public static void main(String[] args){
         Scanner scanner = new Scanner(System.in);
 
