@@ -19,6 +19,7 @@ public class Car {
         this.topSpeed = topSpeed;
     }
 
+    
     public void accelerate() {
         if (gasolineLevel > 0)
             speed += 10;
