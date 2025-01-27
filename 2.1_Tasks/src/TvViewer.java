@@ -6,14 +6,12 @@ class Television {
 
 	public Television() {
 		this.status = false;
-		this.channel = (int)(Math.random() * 100) + 1;
+		this.channel = 1;
 	}
 
 	public void turnOn() {
 		if (this.status == false) {
 			this.status = true;
-			System.out.println("Turning the TV ON!");
-			System.out.println("Channel: " + this.channel);
 			
 		} else {
 			System.out.println("TV is already ON!");
@@ -24,12 +22,10 @@ class Television {
 	public void turnOff() {
 		if (this.status == true) {
 			this.status = false;
-			System.out.println("Turning the TV OFF!");
 		} else {
 			System.out.println("TV is already OFF");
 		}
 	}
-
 
 	public int getChannel() {
 		return channel;
@@ -42,9 +38,11 @@ class Television {
 				System.out.println("You are already on that Channel!");
 				
 			} else {
-				System.out.println("Channel atm: "+ this.status);
-				this.channel = channel;
-				System.out.println("Changing channel to " + channel);
+				this.channel = channel; // SPAGETTI 
+				if (this.channel == 11) {
+					this.channel = 1;
+					
+				}
 			}
 		} else {
 			System.out.println("Television is OFF!");
@@ -55,27 +53,26 @@ class Television {
 public class TvViewer {
 	private final String name;
 	private String status;
+	private int day;
 
 
 	public TvViewer(String name) {
 		this.name = name;
-		status = "Awake";
-		System.out.println(name + " has " +  status + "n!");
+		this.day = 1;
 
 	}
 
 	public void goToSleep() {
 		this.status = "Sleeping";
-		System.out.println(status);
-
+		System.out.println("Falling asleep");
+		day++;
 	}
 
 	public void wakeUp() {
+		this.status = "Awake";
+		System.out.println("Woke up, day " + day);
+		
 
-	}
-
-	public String getStatus() {
-		return name + " is " + status;
 	}
 	
 
@@ -84,17 +81,23 @@ public class TvViewer {
 		TvViewer viewer = new TvViewer("Jarmo");
 		Television tv = new Television();
 
-		System.out.println(viewer.getStatus());
-		
-		System.out.println("-----");
-		tv.turnOn();
-		tv.turnOn();
+		for (int day = 1; day <= 10; day++) {
+			viewer.wakeUp();
+			tv.turnOn();
+			
+			boolean tired = false;
 
-		System.out.println("-----");
-		tv.turnOff();
-		tv.turnOff();
-		
+			while (!tired) {
+				System.out.println("Watching channel " + tv.getChannel());
+				tv.setChannel(tv.getChannel() + 1);
+				
+				if (tv.getChannel() % 4 == 0)
+					tired = true;
+
+			}
+			
+			tv.turnOff();
+			viewer.goToSleep();
+		}
 	}
-
-
 }
