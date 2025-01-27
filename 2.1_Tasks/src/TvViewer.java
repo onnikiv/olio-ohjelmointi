@@ -71,7 +71,6 @@ public class TvViewer {
 	public void wakeUp() {
 		this.status = "Awake";
 		System.out.println("Woke up, day " + day);
-		
 
 	}
 	
