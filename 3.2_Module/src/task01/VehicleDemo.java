@@ -8,6 +8,7 @@ public class VehicleDemo {
         Bus vehicle3 = new Bus("Bus", "Diesel", 40);
 
         System.out.println();
+        System.out.println("Vehicle Demonstration");
         vehicle1.start();
         vehicle1.stop();
         vehicle1.getInfo();
