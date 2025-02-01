@@ -1,3 +1,5 @@
+package task01;
+
 public class Motorcycle implements Vehicle {
 
     private final String type;

@@ -1,3 +1,5 @@
+package task01;
+
 public interface Vehicle {
 
     void start();
