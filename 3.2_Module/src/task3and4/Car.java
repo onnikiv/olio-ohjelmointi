@@ -1,13 +1,14 @@
-package task03;
+package task3and4;
 
-public class ElectricMotorcycle extends AbstrackVehicle {
+public class Car extends AbstrackVehicle {
 
-    ElectricMotorcycle() {
-        super(VehicleType.ElectricMotorcycle);
-        this.fuel = "Electricity";
-
+    Car(String fuel, String color) {
+        super(VehicleType.Car);
+        this.fuel = fuel;
+        this.color = color;
+        
         //task 4
-        this.fuelEfficiency = 100 / 20;
+        this.fuelEfficiency = 100 / 6; // 100km / 6litraa 
     }
 
     @Override
@@ -15,12 +16,8 @@ public class ElectricMotorcycle extends AbstrackVehicle {
         System.out.println(type + " information:");
         System.out.println("Type: " + type);
         System.out.println("Fuel: " + fuel);
+        System.out.println("Color: " + color);
         System.out.println();
-    }
-
-    @Override
-    public void charge() {
-        System.out.println(type + " is now charging");
     }
 
     //task 4

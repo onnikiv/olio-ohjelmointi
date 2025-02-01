@@ -1,24 +1,22 @@
-package task03;
+package task3and4;
 
-public class Bus extends AbstrackVehicle {
+public class Motorcycle extends AbstrackVehicle {
 
-    private final int capacity;
-
-    Bus(String fuel, int capacity) {
-        super(VehicleType.Bus);
+    Motorcycle(String fuel, String color) {
+        super(VehicleType.Motorcycle);
         this.fuel = fuel;
-        this.capacity = capacity;
-        
+        this.color = color;
+
         //task 4
-        this.fuelEfficiency = 100 / 25;
+        this.fuelEfficiency = 100 / 4;
     }
 
     @Override
     public void getInfo() {
-        System.out.println(type + " information: ");
+        System.out.println(type + " information:");
         System.out.println("Type: " + type);
         System.out.println("Fuel: " + fuel);
-        System.out.println("Capacity: " + capacity + " passengers");
+        System.out.println("Color: " + color);
         System.out.println();
     }
 
