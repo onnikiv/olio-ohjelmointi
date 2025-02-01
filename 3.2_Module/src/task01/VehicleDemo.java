@@ -3,9 +3,9 @@ package task01;
 public class VehicleDemo {
 
     public static void main(String[] args) {
-        Vehicle vehicle1 = new Car("Car", "Petrol", "Red");
-        Vehicle vehicle2 = new Motorcycle("Motorcyle", "Gasoline", "Black");
-        Vehicle vehicle3 = new Bus("Bus", "Diesel", 40);
+        Car vehicle1 = new Car("Car", "Petrol", "Red");
+        Motorcycle vehicle2 = new Motorcycle("Motorcyle", "Gasoline", "Black");
+        Bus vehicle3 = new Bus("Bus", "Diesel", 40);
 
         System.out.println();
         vehicle1.start();
