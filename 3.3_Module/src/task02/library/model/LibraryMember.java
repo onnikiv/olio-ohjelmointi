@@ -1,9 +1,39 @@
 package task02.library.model;
 
-public class LibraryMember {
-    private String name;
-    private int memberId;
-    // List<Book> borrowedBooks
+import java.util.ArrayList;
 
-    // Constructor, getters, setters
+public class LibraryMember {
+
+    private final String name;
+    private final int memberId;
+    private static int memberCount = 0;
+    private final ArrayList<Book> borrowedBooks;
+
+    public LibraryMember(String name) {
+        this.name = name;
+        this.memberId = memberCount;
+        this.borrowedBooks = new ArrayList<>();
+
+        memberCount++;
+    }
+
+    public String getMemberName() {
+        return name;
+    }
+
+    public int getMemberId() {
+        return memberId;
+    }
+
+    public void addToBorrowedBooks(Book book) {
+        borrowedBooks.add(book);
+    }
+
+    public void removeFromBorrowedBooks(Book book) {
+        borrowedBooks.remove(book);
+    }
+
+    public boolean checkBookBorrowed(Book book) {
+        return this.borrowedBooks.contains(book);
+    }
 }

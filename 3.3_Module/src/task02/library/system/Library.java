@@ -1,26 +1,53 @@
 package task02.library.system;
 
+import java.util.ArrayList;
 import task02.library.model.*;
 
-
-
 public class Library {
-    // List<Book> books
-    // List<LibraryMember> members
+    private final ArrayList<Book> books;
+    private final ArrayList<LibraryMember> members;
+
+    public Library() {
+        books = new ArrayList<>();
+        members = new ArrayList<>();
+    }
 
     public void addBook(Book book) {
-        // Add book to the library
+        if (books.contains(book)) {
+            System.out.println("That Book is already in the system...");
+        } else {
+            books.add(book);
+            book.getBookInfo();
+            System.out.print("added to library... \n");
+        }
     }
 
     public void addMember(LibraryMember member) {
-        // Add member to the library
+        if (members.contains(member)) {
+            System.out.println("That Member is already in the system...");
+        } else {
+            members.add(member);
+            System.out.println("Name: " + member.getMemberName() + " - Id: " + member.getMemberId() + " added.");
+        }
     }
 
     public void borrowBook(LibraryMember member, Book book) {
-        // Borrow book from the library
+        if (books.contains(book)) {
+            member.addToBorrowedBooks(book);
+            books.remove(book);
+            System.out.println(member.getMemberName() + " is now borrowing book " + book.getTitle());
+        } else {
+            System.out.println("Book: " + book.getTitle() + " is not in the system");
+        }
     }
 
     public void returnBook(LibraryMember member, Book book) {
-        // Return book to the library
+        if (member.checkBookBorrowed(book)) {
+            member.removeFromBorrowedBooks(book);
+            books.add(book);
+            System.out.println(member.getMemberName() + " has returned book " + book.getTitle());
+        } else {
+            System.out.println("Cannot return Book: " + book.getTitle() + " // not in the system.");
+        }
     }
 }
