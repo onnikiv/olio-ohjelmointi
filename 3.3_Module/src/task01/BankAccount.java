@@ -4,16 +4,16 @@ public class BankAccount {
 
     public static int totalAccounts = 0;
     private int accountBalance;
-    private int accountNumber;
+    private final int accountNumber;
 
     // Your variable declarations and code here
     public BankAccount(int accountBalance) {
         this.accountBalance = accountBalance;
-        this.accountNumber += totalAccounts;
+        this.accountNumber = totalAccounts++ +1;
     }
     
     public int getAccountNumber() {
-        return totalAccounts;
+        return accountNumber;
     }
 
     public double  getAccountBalance() {
@@ -21,15 +21,15 @@ public class BankAccount {
     }
 
     public void deposit(int money) {
-        this.accountBalance =+ money;
+        this.accountBalance += money;
     }
 
     public void withdraw(int money) {
-        this.accountBalance =- money;
+        this.accountBalance -= money;
     }
 
     public int getBalance() {
-        return accountBalance;
+        return this.accountBalance;
     }
 
     public static int getTotalAccounts() {
