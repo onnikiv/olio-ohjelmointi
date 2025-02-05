@@ -1,7 +1,7 @@
-package task02.library.system;
+package task03.library.system;
 
 import java.util.ArrayList;
-import task02.library.model.*;
+import task03.library.model.*;
 
 public class Library {
     private final ArrayList<Book> books;
@@ -48,6 +48,34 @@ public class Library {
             System.out.println(member.getMemberName() + " has returned book " + book.getTitle());
         } else {
             System.out.println("Cannot return Book: " + book.getTitle() + " // not in the system.");
+        }
+    }
+
+
+    public void reserveBook(LibraryMember member, Book book) {
+        if (!book.checkReserved()) {
+            book.setReserved(true);
+            member.addReservedBook(book);
+            System.out.println("Book reserved successfully.");
+        } else {
+            System.out.println("Book is already reserved.");
+        }
+    }
+
+    public void cancelReservation(LibraryMember member, Book book) {
+        if (book.checkReserved() && member.hasReservedBook(book)) {
+            book.setReserved(false);
+            member.removeReservedBook(book);
+            System.out.println("Reservation canceled successfully.");
+        } else {
+            System.out.println("Book was not reserved by this member.");
+        }
+    }
+
+    public void displayReservedBooks(LibraryMember member) {
+        System.out.println("Reserved books for " + member.getMemberName() + ":");
+        for (Book book : member.getReservedBooks()) {
+            System.out.println(book.getTitle());
         }
     }
 }

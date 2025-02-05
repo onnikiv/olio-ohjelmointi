@@ -1,14 +1,17 @@
-package task02.library.model;
+package task03.library.model;
 
 public class Book {
     private final String title;
     private final String author;
     private final String isbn;
 
+    private boolean reserved = false;
+
     public Book(String title, String author, String isbn) {
         this.title = title;
         this.author = author;
         this.isbn = isbn;
+        this.reserved = reserved;
     }
 
     public String getTitle() {
@@ -28,5 +31,13 @@ public class Book {
         System.out.println("Title: " + title);
         System.out.println("Author: " + author);
         System.out.println("isbn: " + isbn);
+    }
+
+    public boolean checkReserved() {
+        return this.reserved;
+    }
+
+    public void setReserved(boolean reserved) {
+        this.reserved = reserved;
     }
 }

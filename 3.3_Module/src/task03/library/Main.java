@@ -1,7 +1,7 @@
-package task02.library;
+package task03.library;
 
-import task02.library.model.*;
-import task02.library.system.*;
+import task03.library.model.*;
+import task03.library.system.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -31,13 +31,12 @@ public class Main {
 
         System.out.println();
 
-        library.borrowBook(user3, book3);
-        library.borrowBook(user1, book3);
+        library.displayReservedBooks(user1);
 
-        library.returnBook(user3, book3); // testausta
-        library.returnBook(user3, book3);
+        user1.addReservedBook(book3);
 
-        library.borrowBook(user1, book3); // toinen ukko lainaa nyt
-        
+        library.displayReservedBooks(user1);
+        user1.addReservedBook(book3);
+
     }
 }
