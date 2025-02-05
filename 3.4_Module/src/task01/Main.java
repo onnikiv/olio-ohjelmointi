@@ -36,14 +36,7 @@ public class Main {
 
             // now it is time to print the result
             reader.close();
-            String[] lines = response.toString().split("\n");
-            for (String l : lines) {
-                String[] columns = l.split(",");
-                // Assuming you want the second column (index 1)
-                if (columns.length > 1) {
-                    System.out.println(columns[1]);
-                }
-            }
+            System.out.println(response.toString());
         } catch (IOException e) {
             System.err.println(e);
         }
