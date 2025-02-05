@@ -4,22 +4,15 @@ public class Fibonakki {
 
     public static void main(String[] args) {
         
-
-        int edellinen = 0;
-        int seuraava = 1;
-        int nykyinen = 0;
-
+        long num1 = 0;
+        long num2 = 1;
+        long fibo;
         
-
-        for (int i = 0; i < 10; i++) {
-            
-            edellinen = seuraava;
-            seuraava = nykyinen;
-
-            System.out.println(nykyinen);
-            
-
-        
+        for (int i = 0; i <= 60; i++) {
+            System.out.println(i + ". " + num1);
+            fibo = num1 + num2;
+            num1 = num2;
+            num2 = fibo;
         }
     }
 }
