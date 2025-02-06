@@ -1,6 +1,5 @@
 package task01;
 
-
 public class Main {
     public static void main(String[] args) {
         
@@ -18,11 +17,19 @@ public class Main {
         System.out.println("-----------------");
 
 
-        // Tässä kohtaa rupesin kuiskimaan Copilotille
+        // Copilotin viimeistelemien metodien testausta
+        laskutin.add(12);
+
+        // 1.
+        laskutin.powerOf(3);
+        System.out.println(laskutin.getCurrent());
         
-        
-        
-        
+        // 2.
+        laskutin.getAllEvenNumbers();
+
+        // 3.
+        laskutin.printAllOddNumbers();
+
     }
 
 }
