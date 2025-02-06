@@ -20,7 +20,7 @@ public class Main {
             int lämpöjenMäärä = 0;
 
             while ((line = reader.readLine()) != null) {
-                // eka rivi mennään "hypätään yli"
+                // eka rivi "hypätään yli"
                 if (header) {
                     header = false; 
                 } else {
