@@ -1,55 +1,44 @@
 package task01;
-
 import java.io.*;
 import java.net.*;
 
 public class Main {
+
+    final static String HALUTTUPVM = "01.01.2023";
     public static void main(String[] args) {
 
-        URL myUrl;
         try {
-            myUrl = new URL("https://users.metropolia.fi/~jarkkov/temploki.csv");
-        } catch (MalformedURLException e) {
-            System.err.println(e);
-            return;
-        }
+            URL myUrl = new URL("https://users.metropolia.fi/~jarkkov/temploki.csv");
 
-        try {
             InputStream istream = myUrl.openStream();
             InputStreamReader istreamreader = new InputStreamReader(istream);
             BufferedReader reader = new BufferedReader(istreamreader);
 
             String line;
-            StringBuilder response = new StringBuilder();
+            boolean header = true;  
+            double kaikkilämmöt = 0;
+            int lämpöjenMäärä = 0;
 
-            int amountOfSamples = 0;
-            double sumOfTemperatures = 0;
-
-            // imuroidaan kaikki 0, ja 1 columneista
             while ((line = reader.readLine()) != null) {
-                String[] columns = line.split(";");
-
-                if (columns.length > 0) { // PVM rivi 
-                    response.append(columns[0]).append(" ");
-                    amountOfSamples++;
-
-                    if (columns.length > 1) { // UlkoTalo
-                        response.append(columns[1]).append("\n");
-
-
+                // eka rivi mennään "hypätään yli"
+                if (header) {
+                    header = false; 
+                } else {
+                    String[] columns = line.split(";");
+                    if (columns[0].trim().contains(HALUTTUPVM)) {
+                        System.out.println(columns[0].trim() + ": " + columns[1]);
+                        // lisätään yhteen muuttujaan, pilkku muutetaan pisteeksi, koska koska -> napataan arvo ja muutetaan doubleksi.
+                        kaikkilämmöt += Double.parseDouble(columns[1].trim().replace(",", "."));
+                        lämpöjenMäärä++;
                     }
                 }
             }
-            reader.close();
-            
-            String[] lines = response.toString().split("\n");
-            for (String l : lines) {
-                if (l.startsWith("01.01.2023")) {
-                    System.out.println(l);
-                }
-            }
 
-            System.out.println("Date: 01.01.2023 --- Average temperature: ");
+            double averageTemperatyyri = kaikkilämmöt / lämpöjenMäärä;
+            System.out.println("\nPVM: " + HALUTTUPVM);
+            System.out.printf("Keskiarvollinen lämpötila : %.2f%n", averageTemperatyyri);
+
+            reader.close();
 
         } catch (IOException e) {
             System.err.println(e);
