@@ -1,16 +1,14 @@
 package task01;
+
 import java.io.*;
 import java.net.*;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Main {
-    private final static String URL_STRING = "https://users.metropolia.fi/~jarkkov/temploki.csv";
-
     public static void main(String[] args) {
+
         URL myUrl;
         try {
-            myUrl = new URL(URL_STRING);
+            myUrl = new URL("https://users.metropolia.fi/~jarkkov/temploki.csv");
         } catch (MalformedURLException e) {
             System.err.println(e);
             return;
@@ -22,34 +20,28 @@ public class Main {
             BufferedReader reader = new BufferedReader(istreamreader);
 
             String line;
-            String[] columnNames = new String[0];
-            boolean header = true;
-            List<Double> temperatures = new ArrayList<>();
+            StringBuilder response = new StringBuilder();
 
+            // imuroidaan kaikki 0, ja 1 columneista
             while ((line = reader.readLine()) != null) {
-                if (header) {
-                    columnNames = line.split(";");
-                    header = false;
-                } else {
-                    String[] columns = line.split(";");
-                    String date = columns[0]; // Date is in the first column
-                    if (date.startsWith("01.01.2023")) {
-                        double temperature = Double.parseDouble(columns[1]); // Temperature is in the second column
-                        temperatures.add(temperature);
+                String[] columns = line.split(";");
+
+                if (columns.length > 0) { // PVM rivi 
+                    response.append(columns[0]).append(" ");
+
+                    if (columns.length > 1) { // UlkoTalo
+                        response.append(columns[1]).append("\n");
                     }
                 }
             }
-
             reader.close();
-
-            // Calculate the average temperature
-            double sum = 0;
-            for (double temp : temperatures) {
-                sum += temp;
+            
+            String[] lines = response.toString().split("\n");
+            for (String l : lines) {
+                if (l.startsWith("01.01.2023")) {
+                    System.out.println(l);
+                }
             }
-            double average = sum / temperatures.size();
-            System.out.println("Average temperature for 1st January 2023: " + average);
-
         } catch (IOException e) {
             System.err.println(e);
         }
