@@ -1,42 +1,55 @@
 package task01;
 import java.io.*;
 import java.net.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
+    private final static String URL_STRING = "https://users.metropolia.fi/~jarkkov/temploki.csv";
+
     public static void main(String[] args) {
-        // first, create the url
         URL myUrl;
         try {
-            myUrl = new URL("https://users.metropolia.fi/~jarkkov/temploki.csv");
+            myUrl = new URL(URL_STRING);
         } catch (MalformedURLException e) {
             System.err.println(e);
             return;
         }
 
         try {
-            // open the connection and get the input stream
-            // it will automatically generate HTTP GET-request
             InputStream istream = myUrl.openStream();
-
-            // jump to character streams
             InputStreamReader istreamreader = new InputStreamReader(istream);
-
-            // and to buffered reader for efficiency
             BufferedReader reader = new BufferedReader(istreamreader);
 
-            // we use StringBuilder for efficiency, concatenating ordinary Strings is slow and
-            // generates unnecessary objects
             String line;
-            StringBuilder response = new StringBuilder();
+            String[] columnNames = new String[0];
+            boolean header = true;
+            List<Double> temperatures = new ArrayList<>();
 
-            // here we read the content of the web page line by line
             while ((line = reader.readLine()) != null) {
-                response.append(line);
+                if (header) {
+                    columnNames = line.split(";");
+                    header = false;
+                } else {
+                    String[] columns = line.split(";");
+                    String date = columns[0]; // Date is in the first column
+                    if (date.startsWith("01.01.2023")) {
+                        double temperature = Double.parseDouble(columns[1]); // Temperature is in the second column
+                        temperatures.add(temperature);
+                    }
+                }
             }
 
-            // now it is time to print the result
             reader.close();
-            System.out.println(response.toString());
+
+            // Calculate the average temperature
+            double sum = 0;
+            for (double temp : temperatures) {
+                sum += temp;
+            }
+            double average = sum / temperatures.size();
+            System.out.println("Average temperature for 1st January 2023: " + average);
+
         } catch (IOException e) {
             System.err.println(e);
         }
