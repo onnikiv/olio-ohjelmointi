@@ -1,6 +1,6 @@
 package task01;
 
-public class Customer extends Thread{
+public class Customer extends Thread {
 
     private int ticketsReserved;
     private final int amountOfTicketsToGet;
@@ -14,13 +14,9 @@ public class Customer extends Thread{
         //System.out.println("Customer " + customerId + " luotu");
         this.amountOfTicketsToGet = 1 + (int) (Math.random() * 4); // 1-4 lippua varattavaksi
     }
-    
+
     public int getCustomerId() {
         return customerId;
-    }
-    
-    public int getTotalAmountOfCustomers() {
-        return customerAmount;
     }
 
     public int getCustomerTicketAmount() {
@@ -33,11 +29,16 @@ public class Customer extends Thread{
 
     public void updateTicketAmount(int tickets) {
         this.ticketsReserved = tickets;
-
     }
 
     public void printInfo() {
         System.out.println("Customer: " + customerId);
         System.out.println("Tickets: " + ticketsReserved);
+    }
+
+    @Override
+    public void run() {
+        Theater theater = Theater.getInstance();
+        theater.reserveTicket(this);
     }
 }
