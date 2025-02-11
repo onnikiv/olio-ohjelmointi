@@ -3,7 +3,7 @@ package task01;
 public class Customer extends Thread{
 
     private int ticketsReserved;
-    private int customerId;
+    private final int customerId;
     private static int customerAmount = 0;
 
     public Customer() {
@@ -28,12 +28,8 @@ public class Customer extends Thread{
         return ticketsReserved;
     }
 
-
     public void printInfo() {
         System.out.println("Customer ID: " + customerId);
         System.out.println("Tickets: " + ticketsReserved);
-        
     }
-
-
 }

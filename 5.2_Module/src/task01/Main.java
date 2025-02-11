@@ -5,6 +5,7 @@ public class Main {
 
     public static void main(String[] args) {
         
+        Theater teatteri = new Theater(10);
     
         Customer customer1 = new Customer();
         Customer customer2 = new Customer();
