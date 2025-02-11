@@ -7,12 +7,16 @@ public class Customer extends Thread {
     private final int customerId;
     private static int customerAmount = 0;
 
-    public Customer() {
+    private final Theater theater;
+
+    public Customer(Theater theater) {
         this.customerId = (customerAmount + 1);
         customerAmount++;
         this.ticketsReserved = 0;
         //System.out.println("Customer " + customerId + " luotu");
         this.amountOfTicketsToGet = 1 + (int) (Math.random() * 4); // 1-4 lippua varattavaksi
+
+        this.theater = theater;
     }
 
     public int getCustomerId() {
@@ -38,7 +42,6 @@ public class Customer extends Thread {
 
     @Override
     public void run() {
-        Theater theater = Theater.getInstance();
         theater.reserveTicket(this);
     }
 }
