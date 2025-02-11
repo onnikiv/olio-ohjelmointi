@@ -1,23 +1,20 @@
 package task01;
 
 
+
 public class Main {
 
     public static void main(String[] args) {
         
-        Theater teatteri = new Theater(10);
-    
-        Customer customer1 = new Customer();
-        Customer customer2 = new Customer();
+        Theater teatteri = new Theater(30);
         
+        teatteri.run();
+        
+        //System.out.println(customer1.getTotalAmountOfCustomers());
+        //System.out.println(customer2.getCustomerId());
 
-        System.out.println(customer1.getTotalAmountOfCustomers());
 
-        System.out.println(customer2.getCustomerId());
-        customer2.reserveTicket(6);
 
-        customer1.printInfo();
-        customer2.printInfo();
 
     }
 
