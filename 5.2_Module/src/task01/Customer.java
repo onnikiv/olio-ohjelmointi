@@ -15,7 +15,6 @@ public class Customer extends Thread {
         this.ticketsReserved = 0;
         //System.out.println("Customer " + customerId + " luotu");
         this.amountOfTicketsToGet = 1 + (int) (Math.random() * 4); // 1-4 lippua varattavaksi
-
         this.theater = theater;
     }
 

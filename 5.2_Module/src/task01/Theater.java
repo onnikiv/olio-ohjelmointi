@@ -13,10 +13,10 @@ public class Theater {
         if (TICKETS >= customer.amountOfTicketsToGet()) {
             TICKETS = TICKETS - customer.amountOfTicketsToGet();
             customer.updateTicketAmount(customer.amountOfTicketsToGet());
-            System.out.println("Customer [" + customer.getCustomerId() + "] reserved: " + customer.getCustomerTicketAmount() + " tickets.                       Tickets left: " + TICKETS);
+            System.out.println("Customer [" + customer.getCustomerId() + "] has reserved: " + customer.getCustomerTicketAmount() + " tickets.                       Tickets left: " + TICKETS);
             return true;
         } else {
-            System.out.println("Customer [" + customer.getCustomerId() + "] couldn't reserve " + customer.amountOfTicketsToGet() + " tickets.");
+            System.out.println("Customer [" + customer.getCustomerId() + "] couldn't reserve " + customer.amountOfTicketsToGet() + " tickets.                   Tickets left: " + TICKETS);
             return false;
         }
     }

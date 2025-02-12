@@ -8,7 +8,7 @@ public class Main {
         
         ArrayList<Customer> customers = new ArrayList<>();
 
-        Theater teatteri = new Theater(10);
+        Theater teatteri = new Theater(25);
 
         for (int i = 0; i < Runtime.getRuntime().availableProcessors(); i++) {
             Customer customer = new Customer(teatteri);
