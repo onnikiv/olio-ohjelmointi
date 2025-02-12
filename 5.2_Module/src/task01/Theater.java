@@ -10,10 +10,10 @@ public class Theater {
     }
 
     public synchronized boolean reserveTicket(Customer customer) {
-        if (TICKETS > 0) {
+        if (TICKETS >= customer.amountOfTicketsToGet()) {
             TICKETS = TICKETS - customer.amountOfTicketsToGet();
             customer.updateTicketAmount(customer.amountOfTicketsToGet());
-            System.out.println("Customer [" + customer.getCustomerId() + "] reserved: " + customer.getCustomerTicketAmount() + " tickets.                           Tickets left: " + TICKETS);
+            System.out.println("Customer [" + customer.getCustomerId() + "] reserved: " + customer.getCustomerTicketAmount() + " tickets.                       Tickets left: " + TICKETS);
             return true;
         } else {
             System.out.println("Customer [" + customer.getCustomerId() + "] couldn't reserve tickets.");
