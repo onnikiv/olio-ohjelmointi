@@ -16,7 +16,7 @@ public class Theater {
             System.out.println("Customer [" + customer.getCustomerId() + "] reserved: " + customer.getCustomerTicketAmount() + " tickets.                       Tickets left: " + TICKETS);
             return true;
         } else {
-            System.out.println("Customer [" + customer.getCustomerId() + "] couldn't reserve tickets.");
+            System.out.println("Customer [" + customer.getCustomerId() + "] couldn't reserve " + customer.amountOfTicketsToGet() + " tickets.");
             return false;
         }
     }
