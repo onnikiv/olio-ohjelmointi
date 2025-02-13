@@ -3,7 +3,6 @@ package task01;
 import java.util.ArrayList;
 
 public class Main {
-
     public static void main(String[] args) {
         
         ArrayList<Customer> customers = new ArrayList<>();
@@ -12,24 +11,15 @@ public class Main {
 
         for (int i = 0; i < Runtime.getRuntime().availableProcessors(); i++) {
             Customer customer = new Customer(teatteri);
-            customers.add(customer);
-            
-        }
+            customers.add(customer);}
 
         for (Customer customer : customers) {
-            customer.start();
-
-            
-        }
+            customer.start();}
         
         for (Customer customer : customers) {
             try {
-                // System.out.print(customer.getCustomerId() + " - ");
                 customer.join();
-            } catch (InterruptedException e) {
-
-            }
-            
+            } catch (InterruptedException e) {} 
         }
     }
 }
