@@ -1,5 +1,7 @@
 package VirtualDictionary.Controller;
 
+import java.util.HashMap;
+
 import VirtualDictionary.Model.Dictionary;
 import VirtualDictionary.View.DictionaryView;
 
@@ -18,6 +20,10 @@ public class DictionaryController {
         if (search != null) {
             dictionaryView.setSearchResult(dictionary.getMeaning(search));            
         }
+    }
+
+    public HashMap<String, String> getWholeDictionary() {
+        return dictionary.getDictionary();
     }
 
 }

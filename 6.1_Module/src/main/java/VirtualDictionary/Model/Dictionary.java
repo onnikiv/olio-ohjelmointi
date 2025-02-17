@@ -5,8 +5,7 @@ import java.util.HashMap;
 public class Dictionary {
 
     private final HashMap<String, String> dictionary = new HashMap<>();
-    
-    
+
     public Dictionary() {
         dictionary.put("apple", "a fruit");
         dictionary.put("book", "a set of written or printed pages");
@@ -28,7 +27,6 @@ public class Dictionary {
         dictionary.put("river", "a large natural stream of water");
         dictionary.put("sun", "the star around which the earth orbits");
         dictionary.put("tree", "a woody perennial plant");
-        
     }
 
     public boolean checkDictonaryItem(String key) {
@@ -37,11 +35,13 @@ public class Dictionary {
 
     public String getMeaning(String key) {
         if (checkDictonaryItem(key)) {
-
             return dictionary.get(key);
         } else {
             return "Word not found!";
         }
+    }
 
+    public HashMap<String, String> getDictionary() {
+        return dictionary;
     }
 }

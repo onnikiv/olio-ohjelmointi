@@ -1,6 +1,8 @@
 package VirtualDictionary.View;
 
 
+import java.util.HashMap;
+
 import VirtualDictionary.Controller.DictionaryController;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -15,38 +17,50 @@ public class DictionaryView extends Application{
 
 
     private DictionaryController controller;
-    private final TextField textField = new TextField();
-    private final Label searchResult = new Label("Search Result:");
+    private TextField textField = new TextField();
+    private Label searchResult = new Label("Search Result:");
 
+    private FlowPane pane = new FlowPane();
 
     @Override
     public void start(Stage stage) {
         
         Button searchButton = new Button("Search");
-        FlowPane pane = new FlowPane();
-
 
         stage.setTitle("Sanakirja");
-
+        
         pane.setPrefWidth(400);
         pane.setPrefHeight(300);
-
+        
+        textField.setLayoutX(10);
+        textField.setLayoutY(10);
+        searchButton.setLayoutX(10);
+        searchButton.setLayoutY(40);
+        searchResult.setLayoutX(10);
+        searchResult.setLayoutY(70);
+        
         pane.getChildren().add(textField);
         pane.getChildren().add(searchButton);
         pane.getChildren().add(searchResult);
-
+        
+        
+        
+        
+        
         Scene scene = new Scene(pane);
         
         stage.setScene(scene);
 
         stage.show();
+        
 
         searchButton.setOnAction((ActionEvent event) -> {
             
             controller.getTextFieldSearch();
+            
 
         });
-
+        
         stage.show();
 
         
@@ -63,5 +77,21 @@ public class DictionaryView extends Application{
 
     public void setSearchResult(String search) {
         this.searchResult.setText(search);
+    }
+
+    // jauwza
+    public void setDictionaryToInterface() {
+        HashMap<String, String> dictionary = controller.getWholeDictionary();
+        
+        int yPositio = 100;
+
+        for (String key : dictionary.keySet()) {
+            Label wordLabel = new Label(key);
+            wordLabel.setLayoutX(200);
+            wordLabel.setLayoutY(yPositio);
+            pane.getChildren().add(wordLabel);
+            yPositio += 20;
+        }
+        
     }
 }
