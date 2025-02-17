@@ -25,5 +25,4 @@ public class DictionaryController {
     public HashMap<String, String> getWholeDictionary() {
         return dictionary.getDictionary();
     }
-
 }

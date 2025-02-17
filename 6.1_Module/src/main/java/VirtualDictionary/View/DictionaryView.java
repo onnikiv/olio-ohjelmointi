@@ -11,54 +11,44 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 
 public class DictionaryView extends Application{
 
-
     private DictionaryController controller;
-    private TextField textField = new TextField();
-    private Label searchResult = new Label("Search Result:");
+    private final TextField textField = new TextField();
+    private final Label searchResult = new Label("Search Result:");
+    private final FlowPane pane = new FlowPane();
 
-    private FlowPane pane = new FlowPane();
-
+    // testings
     @Override
     public void start(Stage stage) {
         
         Button searchButton = new Button("Search");
+        Region gap = new Region();
+        gap.setPrefWidth(500);
 
         stage.setTitle("Sanakirja");
         
+        // koko
         pane.setPrefWidth(400);
         pane.setPrefHeight(300);
-        
-        textField.setLayoutX(10);
-        textField.setLayoutY(10);
-        searchButton.setLayoutX(10);
-        searchButton.setLayoutY(40);
-        searchResult.setLayoutX(10);
-        searchResult.setLayoutY(70);
-        
-        pane.getChildren().add(textField);
-        pane.getChildren().add(searchButton);
-        pane.getChildren().add(searchResult);
-        
-        
-        
-        
-        
-        Scene scene = new Scene(pane);
-        
-        stage.setScene(scene);
+        pane.setVgap(5);
+        pane.setHgap(5);
 
+        pane.getChildren().addAll(searchButton, textField, searchResult);
+        pane.getChildren().add(gap);
+        
+        setDictionaryToInterface(pane);
+
+        Scene scene = new Scene(pane);
+        stage.setScene(scene);
         stage.show();
         
 
         searchButton.setOnAction((ActionEvent event) -> {
-            
-            controller.getTextFieldSearch();
-            
-
+            controller.getTextFieldSearch();   
         });
         
         stage.show();
@@ -80,18 +70,13 @@ public class DictionaryView extends Application{
     }
 
     // jauwza
-    public void setDictionaryToInterface() {
+    public void setDictionaryToInterface(FlowPane pane) {
         HashMap<String, String> dictionary = controller.getWholeDictionary();
         
-        int yPositio = 100;
-
         for (String key : dictionary.keySet()) {
-            Label wordLabel = new Label(key);
-            wordLabel.setLayoutX(200);
-            wordLabel.setLayoutY(yPositio);
-            pane.getChildren().add(wordLabel);
-            yPositio += 20;
+            Label keyWord = new Label(key);
+            keyWord.setStyle("-fx-border-color: black;");
+            pane.getChildren().add(keyWord);
         }
-        
     }
 }
