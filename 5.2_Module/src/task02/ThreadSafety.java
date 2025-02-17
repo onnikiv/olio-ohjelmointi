@@ -19,7 +19,7 @@ class ThreadClass extends Thread {
     public synchronized void run() {
         threadSafety.addElement("Element " + threadId); System.out.print(", by THREAD: " + threadId +"\n");
         threadSafety.removeElement("Element " + threadId); System.out.print(", by THREAD: " + threadId +"\n");
-        System.out.println("Collection size: " + threadSafety.getCollectionSize());
+        System.out.print("Collection size: " + threadSafety.getCollectionSize()); System.out.print(", by THREAD: " + threadId +"\n");
     }
 }
 
@@ -53,21 +53,12 @@ public class ThreadSafety {
         int THREADS = 10;
         ThreadSafety testings = new ThreadSafety();
 
-        System.out.println(testings.getCollectionSize());
-
         for (int i = 0; i < THREADS; i++) {
             Thread thread = new ThreadClass(testings);
             thread.start();
             try {
                 thread.join();
-            } catch (InterruptedException e) {
-            }
-            
+            } catch (InterruptedException e) {}
         }
-
-
-
-
-        
     }
 }
