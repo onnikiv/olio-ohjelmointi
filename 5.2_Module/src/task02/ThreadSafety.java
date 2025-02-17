@@ -2,21 +2,26 @@ package task02;
 
 import java.util.ArrayList;
 
+
 class ThreadClass extends Thread {
 
     private final int threadId;
     private static int threadCount = 0;
+    private final ThreadSafety threadSafety;
 
-    public ThreadClass() {
+    public ThreadClass(ThreadSafety threadSafety) {
         threadCount++;
         this.threadId = threadCount;
-        System.out.println(threadId + " thread");
+        this.threadSafety = threadSafety;
     }
 
-    
-
+    @Override
+    public synchronized void run() {
+        threadSafety.addElement("Element " + threadId); System.out.print(", by THREAD: " + threadId +"\n");
+        threadSafety.removeElement("Element " + threadId); System.out.print(", by THREAD: " + threadId +"\n");
+        System.out.println("Collection size: " + threadSafety.getCollectionSize());
+    }
 }
-
 
 public class ThreadSafety {
 
@@ -24,36 +29,43 @@ public class ThreadSafety {
 
     public ThreadSafety() {
         this.elements = new ArrayList<>();
-    
     }
 
     public synchronized void addElement(String item) {
         elements.add(item);
-
+        System.out.print(item + " added");
     }
 
     public synchronized void removeElement(String item) {
         if (elements.contains(item)) {
             elements.remove(item);
-            System.out.println(item + " removed");
+            System.out.print(item + " removed");
+        } else {
+            System.out.println(item + " couldn't be removed");
         }
-        System.out.println(item + "couldn't be removed");
     }
 
-    public int getCollectionSize() {
+    public synchronized int getCollectionSize() {
         return elements.size();
     }
 
-
     public static void main(String[] args) {
-
+        int THREADS = 10;
         ThreadSafety testings = new ThreadSafety();
 
         System.out.println(testings.getCollectionSize());
 
-        ThreadClass thread1 = new ThreadClass();
-        
-        ThreadClass thread2 = new ThreadClass();
+        for (int i = 0; i < THREADS; i++) {
+            Thread thread = new ThreadClass(testings);
+            thread.start();
+            try {
+                thread.join();
+            } catch (InterruptedException e) {
+            }
+            
+        }
+
+
 
 
         
