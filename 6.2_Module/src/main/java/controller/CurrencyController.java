@@ -15,25 +15,19 @@ public class CurrencyController {
     }
 
     public void convertCurrencies() {
-        // jos molemmat tuottaa tulosta niin jippii muutetaan
+        // jos molemmat tuottaa tulosta niin jippii
         if (checkInput() && checkCurrencies() == true) {
             
             String from = currencyView.convertFrom();
             String To = currencyView.convertTo();
-
             int input = Integer.parseInt(currencyView.amountOf());
 
             currencyView.setResult(this.currencyModel.exchangeCurrency(input, from, To));
-            //System.out.println(this.currencyModel.exchangeCurrency(input, from, To));
-            
-        } else {
-            //System.out.println("ERROR");
         }
-        
     }
 
     public boolean checkInput() {
-        try { // tiiä onko tää fiksua, mut jos se ei oo string ja luku on yli 0 niin palautetaan true;
+        try {
             int input = Integer.parseInt(currencyView.amountOf());
             return input >= 0;
         } catch (NumberFormatException e) {
@@ -45,11 +39,6 @@ public class CurrencyController {
 
         String from = currencyView.convertFrom();
         String To = currencyView.convertTo();
-        return from != null && To != null; // jos kumpikaan ei null vihreetä valoa
+        return from != null && To != null;
     }
-
-
-
-    
-
 }

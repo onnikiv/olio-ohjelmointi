@@ -1,6 +1,5 @@
 package model;
 
-
 public class CurrencyModel {
 
     public double exchangeCurrency(int amount, String from, String to) {
