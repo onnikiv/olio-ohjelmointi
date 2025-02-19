@@ -10,6 +10,7 @@
 
 .amount, .from, .into, .result, .buttonBox {
     -fx-font-weight: bold;
+    -fx-background-color: rgb(255, 255, 255);
     /*
     -fx-border-color: red;
     */
