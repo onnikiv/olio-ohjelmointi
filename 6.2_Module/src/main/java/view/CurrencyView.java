@@ -91,7 +91,7 @@ public class CurrencyView extends  Application{
     }
 
     public void setResult(double result) {
-        resultField.setText(String.valueOf(result));
+        resultField.setText(String.format("%.2f", result));
 
     }
 
