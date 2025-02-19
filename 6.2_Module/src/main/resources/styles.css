@@ -1,10 +1,18 @@
-.root {
+.layout {
     -fx-font-family: Arial, Helvetica, sans-serif;
     -fx-font-size: large;
+    -fx-background-color: rgba(95, 95, 95, 0.274);
 }
 
+.amount, .from, .into, .result, .buttonBox {
+    -fx-font-weight: bold;
+    /*
+    -fx-border-color: red;
+    */
+    }
+
 .button {
-    -fx-background-color: #8f6b6b;
+    -fx-background-color: rgb(46, 46, 46);
     -fx-text-fill: #ffffff;
     -fx-padding: 10px;
 }
