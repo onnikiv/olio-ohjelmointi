@@ -1,8 +1,12 @@
 .layout {
     -fx-font-family: Arial, Helvetica, sans-serif;
     -fx-font-size: large;
-    -fx-background-color: rgba(95, 95, 95, 0.274);
+
+    -fx-color: #ffffff;
+    -fx-background-image: url("money.png");
+    -fx-background-size: cover;
 }
+  
 
 .amount, .from, .into, .result, .buttonBox {
     -fx-font-weight: bold;
