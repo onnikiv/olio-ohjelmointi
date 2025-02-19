@@ -58,6 +58,7 @@ public class CurrencyView extends  Application{
         
         // SCENE
         Scene view = new Scene(layout);
+        view.getStylesheets().add("styles.css");
         stage.setTitle("Currency Converter ");
         stage.setScene(view);
         stage.show();
