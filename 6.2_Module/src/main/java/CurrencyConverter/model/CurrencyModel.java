@@ -1,4 +1,4 @@
-package model;
+package CurrencyConverter.model;
 
 public class CurrencyModel {
 

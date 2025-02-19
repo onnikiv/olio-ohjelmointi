@@ -1,8 +1,7 @@
-package controller;
+package CurrencyConverter.controller;
 
-import model.CurrencyModel;
-import view.CurrencyView;
-
+import CurrencyConverter.model.CurrencyModel;
+import CurrencyConverter.view.CurrencyView;
 
 public class CurrencyController {
 

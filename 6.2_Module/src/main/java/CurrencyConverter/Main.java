@@ -1,4 +1,5 @@
-import view.CurrencyView;
+package CurrencyConverter;
+import CurrencyConverter.view.CurrencyView;
 
 public class Main {
     public static void main(String[] args) {

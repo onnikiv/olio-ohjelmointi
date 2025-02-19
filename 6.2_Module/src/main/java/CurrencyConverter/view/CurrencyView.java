@@ -1,7 +1,7 @@
-package view;
+package CurrencyConverter.view;
 
 
-import controller.CurrencyController;
+import CurrencyConverter.controller.CurrencyController;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.geometry.Pos;
@@ -31,7 +31,7 @@ public class CurrencyView extends  Application{
         
         // KOKO HÖSKÄ
         TilePane layout = new TilePane();
-        layout.setMinHeight(300);
+        layout.setMinHeight(400);
         layout.getStyleClass().add("layout");
 
         // AMOUNT
