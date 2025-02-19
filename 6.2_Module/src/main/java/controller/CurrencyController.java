@@ -23,7 +23,7 @@ public class CurrencyController {
 
             int input = Integer.parseInt(currencyView.amountOf());
 
-            this.currencyModel.exchangeCurrency(input, from, To);
+            currencyView.setResult(this.currencyModel.exchangeCurrency(input, from, To));
             System.out.println(this.currencyModel.exchangeCurrency(input, from, To));
             
         } else {

@@ -21,6 +21,7 @@ public class CurrencyView extends  Application{
     private final ChoiceBox<String> initialCurrency = new ChoiceBox<>();
     private final ChoiceBox<String> convertToCurrency = new ChoiceBox<>();
     private final TextField currencyInput = new TextField();
+    private final Text resultField = new Text("plör");
 
     @Override
     public void start(Stage stage) {
@@ -49,7 +50,10 @@ public class CurrencyView extends  Application{
 
         // CENTER
         StackPane center = new StackPane();
-        center.getChildren().add(new Text("Result: "));
+        VBox resultBox = new VBox();
+        resultBox.getChildren().add(new Text("Result: "));
+        resultBox.getChildren().add(resultField);
+        center.getChildren().add(resultBox);
         layout.setCenter(center);
         
         // SCENE
@@ -84,6 +88,11 @@ public class CurrencyView extends  Application{
     public String amountOf() {
         return currencyInput.getText();
     
+    }
+
+    public void setResult(double result) {
+        resultField.setText(String.valueOf(result));
+
     }
 
 }
