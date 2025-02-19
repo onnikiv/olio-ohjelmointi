@@ -2,7 +2,7 @@ package task01;
 import java.io.*;
 import java.net.*;
 
-public class Main {
+public class FileStuff {
 
     final static String HALUTTUPVM = "01.01.2023";
     public static void main(String[] args) {
