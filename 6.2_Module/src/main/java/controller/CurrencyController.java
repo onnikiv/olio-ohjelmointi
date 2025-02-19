@@ -24,10 +24,10 @@ public class CurrencyController {
             int input = Integer.parseInt(currencyView.amountOf());
 
             currencyView.setResult(this.currencyModel.exchangeCurrency(input, from, To));
-            System.out.println(this.currencyModel.exchangeCurrency(input, from, To));
+            //System.out.println(this.currencyModel.exchangeCurrency(input, from, To));
             
         } else {
-            System.out.println("ERROR");
+            //System.out.println("ERROR");
         }
         
     }
