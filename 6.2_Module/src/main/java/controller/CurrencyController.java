@@ -45,7 +45,7 @@ public class CurrencyController {
 
         String from = currencyView.convertFrom();
         String To = currencyView.convertTo();
-        return from != null && To != null;
+        return from != null && To != null; // jos kumpikaan ei null vihreetä valoa
     }
 
 
