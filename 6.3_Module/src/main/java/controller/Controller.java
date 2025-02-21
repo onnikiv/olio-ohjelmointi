@@ -23,10 +23,7 @@ public class Controller {
             gui.updateCanvas();
 
         }
-
     }
-
-    
 
     public int getPetX() {
         return pet.getX();
@@ -39,6 +36,4 @@ public class Controller {
     public int getGridSize() {
         return pet.getGridSize();
     }
-
-
 }
