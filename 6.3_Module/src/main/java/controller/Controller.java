@@ -1,5 +1,6 @@
 package controller;
 
+import javafx.application.Platform;
 import model.Pet;
 import view.PetGui;
 
@@ -19,9 +20,6 @@ public class Controller {
 
     public synchronized void handleMove(int x, int y) {
         System.out.println(" X: " + x + " Y: " + y);
-        
-
-
         try {
             while (x != pet.getX() || y != pet.getY()) { 
                 pet.move(x,y);
@@ -32,6 +30,21 @@ public class Controller {
         } catch (Exception e) {
         }
     }
+
+    public void startComputation(int x, int y) {
+        new Thread(() -> {
+            try {
+                
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+
+            }
+
+            Platform.runLater(() -> handleMove(x, y));
+        }).start();
+    }
+
+
 
     public int getPetX() {
         return pet.getX();

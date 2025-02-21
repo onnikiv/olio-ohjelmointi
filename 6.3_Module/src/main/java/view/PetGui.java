@@ -38,7 +38,7 @@ public class PetGui extends Application {
 
         canvas.setOnMouseMoved(event -> {
 
-            controller.handleMove((int)event.getX(), (int)event.getY());
+            controller.startComputation((int)event.getX(), (int)event.getY());
 
         });
 
