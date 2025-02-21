@@ -16,22 +16,22 @@ public class Pet {
         // X positio
         if (this.x != x) {
             if (x >= this.x) {
-            this.x++;
+                this.x++;
             } else {
-            this.x--;
+                this.x--;
             }
         }
         // Y positio
         if (this.y != y) {
             if (y >= this.y) {
-            this.y++;
+                this.y++;
             } else {
-            this.y--;
+                this.y--;
             }
         }
     }
 
-        public int getX() {
+    public int getX() {
         return x;
     }
 

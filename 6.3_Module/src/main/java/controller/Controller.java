@@ -17,7 +17,7 @@ public class Controller {
 
     }
 
-    public void handleMove(int x, int y) {
+    public synchronized void handleMove(int x, int y) {
         System.out.println(" X: " + x + " Y: " + y);
         
 
