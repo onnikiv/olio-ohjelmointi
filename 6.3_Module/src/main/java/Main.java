@@ -1,4 +1,3 @@
-
 import view.PetGui;
 
 public class Main {

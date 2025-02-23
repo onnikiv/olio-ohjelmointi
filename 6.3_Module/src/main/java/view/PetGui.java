@@ -36,18 +36,12 @@ public class PetGui extends Application {
         canvas = new Canvas(WIDTH, HEIGHT);
         gc = canvas.getGraphicsContext2D();
 
-
-
-        
-
         canvas.setOnMouseMoved(event -> {
 
             controller.startComputation((int)event.getX(), (int)event.getY());
 
         });
-
         
-
         StackPane root = new StackPane(canvas);
         Scene scene = new Scene(root, WIDTH, HEIGHT);
         stage.setTitle("Virtual Pet");
@@ -55,8 +49,6 @@ public class PetGui extends Application {
         stage.show();
 
         updateCanvas();
-        
- 
     }
 
     public void updateCanvas() {
@@ -67,6 +59,8 @@ public class PetGui extends Application {
         int y = controller.getPetY();
 
         gc.drawImage(petImage, x-50, y-50, 100, 100);
+
+        gc.strokeLine(x, y, controller.getCursorX(), controller.getCursorY());
 
 
     }

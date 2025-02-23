@@ -9,9 +9,10 @@ public class Controller {
     private final Pet pet;
     private final PetGui gui;
 
+    // kursori koordinaatit
     private int cursorX;
     private int cursorY;
-
+    // liikutaan
     private boolean moving;
 
     public Controller(PetGui gui) {
@@ -46,7 +47,6 @@ public class Controller {
                     try {
                         Thread.sleep(10);
                     } catch (InterruptedException e) {
-                        Thread.currentThread().interrupt();
                     }
                 }
             }).start();
@@ -58,8 +58,6 @@ public class Controller {
         gui.updateCanvas();
     }
 
-
-
     public int getPetX() {
         return pet.getX();
     }
@@ -68,7 +66,11 @@ public class Controller {
         return pet.getY();
     }
 
-    public int getGridSize() {
-        return pet.getGridSize();
+    public int getCursorX() {
+        return cursorX;
+    }
+
+    public int getCursorY() {
+        return cursorY;
     }
 }
