@@ -12,36 +12,50 @@ public class Controller {
     private int cursorX;
     private int cursorY;
 
+    private boolean moving;
+
     public Controller(PetGui gui) {
         this.pet = new Pet(0,0);
         this.gui = gui;
+        this.moving = false;
 
     }
 
     public synchronized void handleMove(int x, int y) {
         System.out.println(" X: " + x + " Y: " + y);
-        try {
-            while (x != pet.getX() || y != pet.getY()) { 
-                pet.move(x,y);
-                gui.updateCanvas();
+        this.cursorX = x;
+        this.cursorY = y;
 
-            }
-            
-        } catch (Exception e) {
+        if (!moving) {
+            moving = true;
+            new Thread(() -> {
+                while (true) {
+                    synchronized (this) {
+                        if (pet.getX() == cursorX && pet.getY() == cursorY) {
+                            moving = false;
+                            break;
+                        }
+                        if (pet.getX() < cursorX) { pet.setX(pet.getX() + 1); }
+                        if (pet.getX() > cursorX) { pet.setX(pet.getX() - 1); }
+                        if (pet.getY() < cursorY) { pet.setY(pet.getY() + 1); }
+                        if (pet.getY() > cursorY) { pet.setY(pet.getY() - 1); }
+                    }
+
+                    Platform.runLater(() -> gui.updateCanvas());
+
+                    try {
+                        Thread.sleep(10);
+                    } catch (InterruptedException e) {
+                        Thread.currentThread().interrupt();
+                    }
+                }
+            }).start();
         }
     }
 
     public void startComputation(int x, int y) {
-        new Thread(() -> {
-            try {
-                
-                Thread.sleep(500);
-            } catch (InterruptedException e) {
-
-            }
-
-            Platform.runLater(() -> handleMove(x, y));
-        }).start();
+        Platform.runLater(() -> handleMove(x, y));
+        gui.updateCanvas();
     }
 
 

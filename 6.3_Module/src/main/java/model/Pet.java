@@ -12,23 +12,13 @@ public class Pet {
         this.y = y;
         } 
 
-    public void move(int x, int y) {
-        // X positio
-        if (this.x != x) {
-            if (x >= this.x) {
-                this.x++;
-            } else {
-                this.x--;
-            }
-        }
-        // Y positio
-        if (this.y != y) {
-            if (y >= this.y) {
-                this.y++;
-            } else {
-                this.y--;
-            }
-        }
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    
+    public void setY(int y) {
+        this.y = y;
     }
 
     public int getX() {
