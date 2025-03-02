@@ -7,7 +7,6 @@ public class Note {
     public Note(String title, String text) {
         this.noteTitle = title;
         this.noteText = text;
-        
     }
 
     public void setNoteTitle(String title) {
