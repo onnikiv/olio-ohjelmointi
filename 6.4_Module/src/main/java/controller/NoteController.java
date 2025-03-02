@@ -42,7 +42,6 @@ public class NoteController {
     private ListView<String> listView;
     private final Notebook notebook;
 
-
     public NoteController() {
         notebook = new Notebook();
     }
@@ -125,6 +124,7 @@ public class NoteController {
     public void edit() {
         String selectedTitle = listView.getSelectionModel().getSelectedItem();
         if (selectedTitle != null) {
+            listView.setDisable(true);
             box.setVisible(false);
             editBox.setVisible(true);
             saveButton.setVisible(true);
@@ -153,11 +153,12 @@ public class NoteController {
             editBox.setVisible(false);
             saveButton.setVisible(false);
             box.setVisible(true);
+            listView.setDisable(false);
 
             title.setText("");
             text.setText("");
 
-            debugText.setText("Saved");
+            debugText.setText("Saved Edits");
         }
     }
 }
