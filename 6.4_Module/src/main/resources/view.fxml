@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Controller">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <VBox prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <TextField fx:id="titleBox" promptText="Title" />
+            <TextArea fx:id="notesBox" prefHeight="200.0" prefWidth="200.0" promptText="Notes" />
+            <Button fx:id="addButton" mnemonicParsing="false" onAction="#addNote" prefHeight="45.0" prefWidth="300.0" text="Add" />
+         </children>
+      </VBox>
+      <ListView fx:id="listView" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" />
+      <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+         <children>
+            <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#delete" text="Delete" />
+            <Button fx:id="debugButton" mnemonicParsing="false" onAction="#debug" text="debug" />
+            <Button fx:id="editButton" mnemonicParsing="false" onAction="#edit" text="Edit" />
+            <Button fx:id="saveButton" mnemonicParsing="false" onAction="#save" text="Save" />
+         </children>
+      </HBox>
+      <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
+         <children>
+            <Text fx:id="title" strokeType="OUTSIDE" strokeWidth="0.0" text="title" wrappingWidth="291.6471290588379" />
+            <Text fx:id="text" strokeType="OUTSIDE" strokeWidth="0.0" text="text" wrappingWidth="294.94139862060547" />
+            <TextField fx:id="noteContentTitle" />
+            <TextArea fx:id="noteContentText" prefHeight="200.0" prefWidth="200.0" />
+         </children>
+      </VBox>
+   </children>
+</GridPane>
