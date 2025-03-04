@@ -1,0 +1,28 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    -fx-font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+    -fx-font-size: large;
+}
+  
+
+.convertButton {
+    font-weight: bold;
+    -fx-font-weight: bold;
+    background-color: rgb(255, 255, 255);
+    -fx-background-color: rgb(255, 255, 255);
+    margin: 20px auto; /* Add spacing and center */
+    padding: 10px; /* Add padding for spacing */
+    -fx-padding: 10px;
+    display: block; /* Ensure the ChoiceBox is a block element */
+    text-align: center; /* Center text inside the ChoiceBox */
+}
+
+.button {
+    background-color: rgb(46, 46, 46);
+    -fx-background-color: rgb(46, 46, 46);
+    color: #ffffff;
+    -fx-text-fill: #ffffff;
+    padding: 10px;
+    -fx-padding: 10px;
+}
