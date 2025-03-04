@@ -16,14 +16,15 @@ CREATE TABLE CURRENCIES (
 
 -------4--------
 INSERT INTO CURRENCIES (currencyCode, currencyName, conversionRate) VALUES
-    ('EUR', 'Euro', 0.85),
-    ('USD', 'US Dollar', 1.00),
-    ('GBP', 'British Pound', 0.75),
-    ('JPY', 'Japanese Yen', 110.00),
-    ('AUD', 'Australian Dollar', 1.35),
-    ('CAD', 'Canadian Dollar', 1.25),
-    ('CHF', 'Swiss Franc', 0.92),
-    ('CNY', 'Chinese Yuan', 6.45);
+    ('EUR', 'Euro', 0.9535),
+    ('USD', 'US Dollar', 1.0000),
+    ('GBP', 'British Pound', 0.7902),
+    ('JPY', 'Japanese Yen', 149.40),
+    ('AUD', 'Australian Dollar', 1.5859),
+    ('CAD', 'Canadian Dollar', 1.4358),
+    ('CHF', 'Swiss Franc', 0.8955),
+    ('CNY', 'Chinese Yuan', 7.2570);
+
 
 -------5--------
 DROP USER IF EXISTS 'appuser'@'localhost';
