@@ -34,7 +34,6 @@ public class Currency {
     }
 
     public Currency() {
-
     }
     
     public String getCurrencyCode() {
@@ -52,5 +51,16 @@ public class Currency {
     public int getId() {
         return id;
     }
-    
+
+    public void setCurrencyCode(String CODE) {
+        this.currencyCode = CODE;
+    }
+
+    public void setCurrencyName(String NAME) {
+        this.currencyName = NAME;
+    }
+
+    public void setConversionRate(double RATE) {
+        this.conversionRate = RATE;
+    }
 }

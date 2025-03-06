@@ -62,7 +62,7 @@
             <Insets />
          </GridPane.margin>
       </Text>
-      <Button fx:id="addCurrencyButton" mnemonicParsing="false" text="Add" GridPane.columnIndex="2" GridPane.rowIndex="1">
+      <Button fx:id="addCurrencyButton" mnemonicParsing="false" onAction="#addNewCurrency" text="Add" GridPane.columnIndex="2" GridPane.rowIndex="1">
          <GridPane.margin>
             <Insets left="80.0" />
          </GridPane.margin>
