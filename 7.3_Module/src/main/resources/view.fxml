@@ -37,6 +37,8 @@
                <VBox.margin>
                   <Insets left="70.0" />
                </VBox.margin></ChoiceBox>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="200.13671875" />
+            <Text fx:id="currencyNameFrom" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="200.13671875" />
          </children>
       </VBox>
       <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2">
@@ -46,6 +48,8 @@
                <VBox.margin>
                   <Insets left="70.0" />
                </VBox.margin></ChoiceBox>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="200.13671875" />
+            <Text fx:id="currencyNameTo" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="200.13671875" />
          </children>
       </VBox>
       <Button fx:id="convertButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#convertCurrency" text="Convert" GridPane.rowIndex="1">
@@ -55,8 +59,13 @@
       </Button>
       <Text fx:id="errorMessageText" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <GridPane.margin>
-            <Insets left="100.0" />
+            <Insets />
          </GridPane.margin>
       </Text>
+      <Button fx:id="addCurrencyButton" mnemonicParsing="false" text="Add" GridPane.columnIndex="2" GridPane.rowIndex="1">
+         <GridPane.margin>
+            <Insets left="80.0" />
+         </GridPane.margin>
+      </Button>
    </children>
 </GridPane>
