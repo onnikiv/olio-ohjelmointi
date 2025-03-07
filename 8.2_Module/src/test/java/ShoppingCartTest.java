@@ -18,6 +18,8 @@ public class ShoppingCartTest {
         TESTNUMBER += 1;
         System.out.println("**--- ALOITETAAN SEURAAVA TESTI "+ TESTNUMBER + " ---**");
 
+        ShoppingCart sCart = new ShoppingCart();
+
     }
 
     @Test
