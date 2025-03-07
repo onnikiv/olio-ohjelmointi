@@ -119,22 +119,34 @@ public class CurrencyController {
                 double from = 0;
                 double to = 0;
 
+                // alustetaan oliot jotka syötetään Transaction oliolle
+                Currency fromObject = null;
+                Currency toObject = null;
+
                 for (Currency currency : currencies) {
                     if (currency.getCurrencyCode().equals(initialCurrency.getValue())) {
                         from = currency.getConversionRate();
+                        fromObject = currency;
                     }
                     if (currency.getCurrencyCode().equals(convertToCurrency.getValue())) {
                         to = currency.getConversionRate();
+                        toObject = currency;
                     }
                 }
 
                 double convertedAmount = amount * (to / from);
                 
                 if (from != 0 && to != 0) {
-                    errorMessageText.setText(String.format("%.2f %s equals to\n %.2f %s", amount, 
+                    /*
+
+                    JOS KAIKKI MENEE HYVIN TEHDÄÄN MUUNNOS JA LISÄTÄÄN LOPUKSI TRANSACTION TAULUUN
+
+                    */
+                    errorMessageText.setText(String.format("%.2f %s equals to\n %.2f %s\nTransaction has been added to Database", amount, 
                     initialCurrency.getValue(), convertedAmount, convertToCurrency.getValue()));
 
-                    transactionDao.persist(new Transaction(convertedAmount, null, null));
+                    // MÄÄRÄ, SOURCE OLIO, TARGET OLIO
+                    transactionDao.persist(new Transaction(amount, fromObject, toObject)); // <-
                 
                 } else {errorMessageText.setText("Please Select The Currencies");}
 
