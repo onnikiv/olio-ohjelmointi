@@ -1,0 +1,18 @@
+* {
+    -fx-font-family: Arial, Helvetica, sans-serif;
+    -fx-font-size: medium;
+}
+  
+
+.convertButton {
+    -fx-font-weight: bold;
+    -fx-background-color: rgb(255, 255, 255);
+    -fx-padding: 10px;
+
+}
+
+.button {
+    -fx-background-color: rgb(46, 46, 46);
+    -fx-text-fill: #ffffff;
+    -fx-padding: 10px;
+}
