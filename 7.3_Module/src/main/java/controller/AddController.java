@@ -18,7 +18,6 @@ public class AddController {
     private TextField currencyConversionAdd;
     @FXML
     private Text AddErrorBox;
-
     
     public void commitToDB() {
         System.out.println("Button Pressed");
@@ -34,7 +33,6 @@ public class AddController {
                 return;
             }
 
-
             addCurrencyToDatabase(currencyCode, currencyName, conversionRate);
 
         } catch (NumberFormatException e) {
@@ -43,8 +41,6 @@ public class AddController {
         } catch (Exception e) {
             AddErrorBox.setText("An error occurred: " + e.getMessage());
             System.err.println("Exception: " + e.getMessage());
-        } finally {
-            
         }
     }
 
@@ -62,5 +58,4 @@ public class AddController {
             AddErrorBox.setText("Failed to add currency to database: ");
         }
     }
-
 }

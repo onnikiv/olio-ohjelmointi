@@ -40,12 +40,10 @@ public class CurrencyController {
     @FXML
     private ChoiceBox<Object> convertToCurrency;
 
-
     public void initialize() {
         
         currencyDao = new CurrencyDao();
         currencies = new ArrayList<>();
-        
         
         try {
             System.out.println("Currencies lista luotu");
