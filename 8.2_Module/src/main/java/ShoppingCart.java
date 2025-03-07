@@ -20,6 +20,15 @@ public class ShoppingCart {
     public void removeItem(String item) {
         shoppingCart.remove(item);
     }
-    
 
+    public double calculateTotal() {
+        
+        double totalCost = 0;
+
+        for (double cost : shoppingCart.values()) {
+            totalCost += cost;
+        }
+
+        return totalCost;
+    } 
 }

@@ -1,5 +1,4 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.fail;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -49,6 +48,21 @@ public class ShoppingCartTest {
 
     @Test
     public void testCalculateTotal() {
-        fail("Not yet implemented");
+        ShoppingCart sCart = new ShoppingCart();
+        
+        sCart.addItem("Apple", 20);
+        sCart.addItem("Banana", 15.4);
+        sCart.addItem("Orange", 2.4);
+
+        assertEquals(37.8, sCart.calculateTotal(), 0.01);
+    }
+
+    @Test 
+    public void testTestTest() {
+        ShoppingCart sCart = new ShoppingCart();
+
+        sCart.removeItem("TEST");
+
+        assertEquals(0, sCart.getItemCount());
     }
 }
