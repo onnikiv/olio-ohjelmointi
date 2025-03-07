@@ -2,6 +2,7 @@ package controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import dao.CurrencyDao;
 import entity.Currency;
@@ -16,10 +17,10 @@ import javafx.stage.Stage;
 
 public class CurrencyController {
 
-    static final CurrencyDao currencyDao = new CurrencyDao();
+    private CurrencyDao currencyDao;
 
-    private ArrayList<Currency> currencies;
-
+    private List<Currency> currencies;
+    private int CURRENCYCOUNT;
 
     @FXML
     private TextField currencyAmount;
@@ -42,9 +43,14 @@ public class CurrencyController {
 
     public void initialize() {
         
+        currencyDao = new CurrencyDao();
+        currencies = new ArrayList<>();
+        
+        
         try {
-            currencies = new ArrayList<>();
+            System.out.println("Currencies lista luotu");
             populateChoiceBoxes();
+            System.out.println("Choiceboxit täytetty");
 
             // handlerit -> saadaan valuutan nimi textiboxeihin
             initialCurrency.setOnAction(event -> setCurrencyNameToBox());
@@ -52,7 +58,8 @@ public class CurrencyController {
             
             errorMessageText.setText("Connection Succesful!\nCurrencies have been added.");
             
-        } catch (Exception e) { errorMessageText.setText("Connection Failed!\nCouldn't fetch Currencies.");}
+        } catch (Exception e) { errorMessageText.setText("Connection Failed!\nCouldn't fetch Currencies.");
+    System.out.println(e.getMessage());}
     }
 
     private void setCurrencyNameToBox() {
@@ -70,13 +77,17 @@ public class CurrencyController {
     }
 
     public void populateChoiceBoxes() {
-        for (int i = 1; i <= currencyDao.findAll().size(); i++) {
+        try {
+            currencies = currencyDao.findAll();
+            CURRENCYCOUNT = currencies.size();
+            System.out.println("CURRENCYCOUNT: " + CURRENCYCOUNT);
 
-            Currency currency = currencyDao.find(i);
-            currencies.add(currency);
-
-            initialCurrency.getItems().add(currency.getCurrencyCode());
-            convertToCurrency.getItems().add(currency.getCurrencyCode());
+            for (Currency currency : currencies) {
+                initialCurrency.getItems().add(currency.getCurrencyCode());
+                convertToCurrency.getItems().add(currency.getCurrencyCode());
+            }
+        } catch (Exception e) {
+            System.err.println("Error populating choice boxes: " + e.getMessage());
         }
     }
 
@@ -124,5 +135,16 @@ public class CurrencyController {
         Stage stage = new Stage();
         stage.setScene(scene);
         stage.show();
+
+        // KUN IKKUNA SULJETAAN PÄIVITETÄÄN VALUUTTALISTA
+        stage.setOnHiding(event -> updateMainWindow());
+    }
+    private void updateMainWindow() {
+
+        // tyhjätään lista, ja sitten uudestaan täytetään
+        initialCurrency.getItems().clear();
+        convertToCurrency.getItems().clear();
+        populateChoiceBoxes();
+        errorMessageText.setText("Currencies updated.");
     }
 }

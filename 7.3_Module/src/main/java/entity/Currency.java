@@ -22,7 +22,6 @@ public class Currency {
     @Column(name="currencyName")
     private String  currencyName;
 
-
     private double conversionRate;
 
     public Currency(int id, String currencyCode, String currencyName, double conversionRate) {

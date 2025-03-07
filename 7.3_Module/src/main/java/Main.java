@@ -1,4 +1,3 @@
-
 import view.CurrencyView;
 
 public class Main {

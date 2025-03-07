@@ -7,7 +7,6 @@ import jakarta.persistence.EntityManager;
 
 public class CurrencyDao {
 
-
     public void persist(Currency currency) {
         EntityManager em = datasource.MariaDbJpaConnection.getInstance();
         em.getTransaction().begin();

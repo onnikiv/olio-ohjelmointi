@@ -8,7 +8,7 @@ import javafx.scene.text.Text;
 
 public class AddController {
 
-    private CurrencyDao currencyDao = new CurrencyDao();
+    private final CurrencyDao currencyDao = new CurrencyDao();
 
     @FXML
     private TextField currencyFromAdd;

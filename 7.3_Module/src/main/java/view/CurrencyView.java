@@ -11,6 +11,7 @@ public class CurrencyView extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         stage.setTitle("CurrencyConverter/DB");
+        
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view.fxml"));
         Parent root = fxmlLoader.load();
         
